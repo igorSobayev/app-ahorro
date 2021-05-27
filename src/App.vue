@@ -1,32 +1,50 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div class="main">
+    <div class="header-container"></div>
+    <v-app class="body">
+      <router-view />
+    </v-app>
+    <div class="footer-container"></div>
   </div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+export default {
+  name: "App",
 
-#nav {
-  padding: 30px;
+  data: () => ({
+    drawer: false,
+    group: null,
+  }),
+  watch: {
+    group() {
+      this.drawer = false;
+    },
+  },
+};
+</script>
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+<style lang="scss">
+.main {
+  height: 100vh;
+  max-width: 100vw;
+  overflow: hidden;
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  .header-container {
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    -webkit-box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .body {
+    height: 100%;
+    width: 100%;
+    padding-top: 60px;
+    padding-right: 10px;
+    padding-left: 10px;
   }
 }
 </style>
