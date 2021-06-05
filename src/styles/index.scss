@@ -1,6 +1,17 @@
 @import './variables.scss';
 @import './_fonts.scss';
+@import './custom.scss';
+@import './custom-styles';
 
 body {
     font-family: 'Roboto', sans-serif !important;
+}
+
+a {
+    text-decoration: none;
+    color: $color-5;
+}
+
+a:focus-visible {
+    outline: none;
 }

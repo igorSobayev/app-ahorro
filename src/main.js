@@ -8,6 +8,9 @@ import axios from 'axios'
 import '@/styles/index.scss' // global css
 import "normalize.css"
 
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
+
 Vue.config.productionTip = false
 
 new Vue({

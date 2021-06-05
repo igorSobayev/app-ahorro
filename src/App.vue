@@ -1,17 +1,21 @@
 <template>
   <div class="main">
-    <div class="header-container"></div>
+    <headerLayout />
     <v-app class="body">
-      <router-view />
+      <div class="main-content-container">
+        <router-view />
+      </div>
     </v-app>
-    <div class="footer-container"></div>
+    <footerLayout />
   </div>
 </template>
 
 <script>
+import footerLayout from "@/layout/footer";
+import headerLayout from "@/layout/header";
 export default {
   name: "App",
-
+  components: { footerLayout, headerLayout },
   data: () => ({
     drawer: false,
     group: null,
@@ -29,15 +33,7 @@ export default {
   height: 100vh;
   max-width: 100vw;
   overflow: hidden;
-
-  .header-container {
-    width: 100%;
-    height: 50px;
-    position: fixed;
-    top: 0;
-    -webkit-box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.1);
-  }
+  position: relative;
 
   .body {
     height: 100%;
@@ -45,6 +41,12 @@ export default {
     padding-top: 60px;
     padding-right: 10px;
     padding-left: 10px;
+    padding-bottom: 60px;
+
+    .main-content-container {
+      scrollbar-width: none;
+      overflow: scroll;
+    }
   }
 }
 </style>
