@@ -15,3 +15,7 @@ a {
 a:focus-visible {
     outline: none;
 }
+
+.input .v-input .v-input__control .v-input__slot .v-text-field__slot .primary--text {
+    color: $color-4 !important;
+}

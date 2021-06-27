@@ -1,21 +1,17 @@
 <template>
-  <div class="login-container">
-    <h1>Iniciar sesión</h1>
+  <div class="forgot-pass-container">
+    <h1>Recuperar contraseña</h1>
     <form @submit.prevent="login">
       <div>
-        <v-text-field label="Nombre de usuario" name="email" v-model="email" :rules="rules" hide-details="auto"></v-text-field>
-        <v-text-field label="Contraseña" type="password" name="password" v-model="password"></v-text-field>
+        <v-text-field label="Email" name="email" v-model="email" :rules="rules" hide-details="auto"></v-text-field>
       </div>
       <div class="btn-login">
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary">Recuperar</button>
       </div>
 
       <div class="container-btn-register-forgot-pass">
         <div class="btn-registrarse"><span>¿No tienes cuenta?</span> <router-link to="/register">¡Crear una!</router-link></div>
-        <div class="btn-forgot-pass"><router-link to="/forgot-pass">He olvidado la contraseña</router-link></div>
       </div>
-
-      <button type="button" @click="logout()" v-if="isLogged">Logout</button>
     </form>
   </div>
 </template>
@@ -25,7 +21,7 @@ import { mapGetters } from "vuex";
 
 /* eslint-disable */
 export default {
-  name: "Login",
+  name: "ForgotPass",
   data() {
     return {
       email: "",
@@ -61,7 +57,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.login-container {
+.forgot-pass-container {
   width: 100%;
   height: 60vh;
   display: flex;
@@ -73,10 +69,14 @@ export default {
 
   h1 {
     margin-bottom: 0;
+    width: 80%;
+    text-align: center;
+    line-height: 40px;
   }
 
   .btn-login {
     text-align: right;
+    margin-top: 20px;
   }
 
   .container-btn-register-forgot-pass {
@@ -88,13 +88,6 @@ export default {
 
       a {
         color: $color-11;
-      }
-    }
-
-    .btn-forgot-pass {
-      text-align: center;
-      a {
-        color: $color-12;
       }
     }
   }

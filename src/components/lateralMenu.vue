@@ -18,7 +18,7 @@
             <span @click="openedMenu = !openedMenu"><router-link to="/contact">Contacto</router-link></span>
           </div>
           <div class="link">
-            <span @click="openedMenu = !openedMenu"><router-link to="/">Cerrar sesión</router-link></span>
+            <span @click="openedMenu = !openedMenu"><span class="btn-logout" @click="logout()">Cerrar sesión</span></span>
           </div>
         </div>
       </div>
@@ -33,6 +33,11 @@ export default {
     return {
       openedMenu: false,
     };
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("user/logout");
+    },
   },
 };
 </script>
@@ -82,6 +87,13 @@ export default {
         padding-left: 40px;
         gap: 22px;
         font-size: 20px;
+
+        .link {
+          .btn-logout {
+            color: $color-5;
+            cursor: pointer;
+          }
+        }
       }
     }
 

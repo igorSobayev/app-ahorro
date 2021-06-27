@@ -1,15 +1,15 @@
 <template>
   <div class="header-container">
     <div class="lateral-menu-container">
-      <lateralMenu />
+      <lateralMenu v-if="isLogged" />
     </div>
     <div class="logo-container">
-      <div class="logo">
+      <router-link to="/" class="logo">
         <h3>Logo cont</h3>
-      </div>
+      </router-link>
     </div>
     <div class="notification-container">
-      <notificationsButton />
+      <notificationsButton v-if="isLogged" />
     </div>
   </div>
 </template>
@@ -17,10 +17,14 @@
 <script>
 import lateralMenu from "@/components/lateralMenu";
 import notificationsButton from "@/components/notificationsButton";
+import { mapGetters } from "vuex";
 
 export default {
   name: "Footer",
   components: { lateralMenu, notificationsButton },
+  computed: {
+    ...mapGetters(["isLogged", "user"]),
+  },
 };
 </script>
 

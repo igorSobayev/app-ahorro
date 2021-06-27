@@ -1,8 +1,10 @@
 .btn {
     padding: 6px 12px 6px 12px;
-    border-radius: 8px;
+    border-radius: 3px;
     color: white;
+
 }
+
 
 .btn-primary {
     background-color: $color-3;
@@ -11,5 +13,15 @@
     &:hover {
         background-color: white;
         color: $color-3;
+    }
+}
+
+.color {
+    &--suma {
+        color: $color-11;
+    }
+
+    &--resta {
+        color: $color-1;
     }
 }
