@@ -5,7 +5,7 @@
     </div>
     <div class="logo-container">
       <router-link to="/" class="logo">
-        <h3>Logo cont</h3>
+        <img src="@/assets/logo-full.png" alt="">
       </router-link>
     </div>
     <div class="notification-container">
@@ -58,6 +58,14 @@ export default {
     justify-content: center;
     align-items: center;
     color: $color-6;
+
+    a {
+      width: 150px;
+      height: 30px;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+    }
   }
 
   .notification-container {
