@@ -4,8 +4,9 @@
     <v-app class="body">
       <div class="main-content-container">
         <keep-alive>
-          <router-view />
+          <router-view v-if="$route.meta.keepAlive" />
         </keep-alive>
+        <router-view v-if="!$route.meta.keepAlive" />
       </div>
     </v-app>
     <footerLayout v-if="isLogged" />

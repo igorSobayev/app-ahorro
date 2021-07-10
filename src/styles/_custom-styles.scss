@@ -16,6 +16,17 @@
     }
 }
 
+.btn-danger {
+    background-color: $color-1;
+    border: 1px solid $color-1;
+
+    &:hover {
+        background-color: white;
+        color: $color-1;
+    }
+}
+
+
 .color {
     &--suma {
         color: $color-11;

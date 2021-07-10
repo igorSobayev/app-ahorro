@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Operaciones from '@/views/operaciones'
 import addOperacion from '@/views/operaciones/components/addOperation'
+import editOperacion from '@/views/operaciones/components/editOperation'
 import Graficos from '@/views/graficos'
 import Patrimonio from '@/views/patrimonio'
 import login from '@/views/login'
@@ -19,7 +20,8 @@ const routes = [
     name: 'Operaciones',
     component: Operaciones,
     meta: {
-      auth: true
+      auth: true,
+      keepAlive: true
     },
   },
   {
@@ -27,7 +29,17 @@ const routes = [
     name: 'Añadir Operacion',
     component: addOperacion,
     meta: {
-      auth: true
+      auth: true,
+      keepAlive: true
+    },
+  },
+  {
+    path: '/edit-operation/:id',
+    name: 'Editar Operacion',
+    component: editOperacion,
+    meta: {
+      auth: true,
+      keepAlive: false
     },
   },
   {
@@ -35,7 +47,8 @@ const routes = [
     name: 'Graficos',
     component: Graficos,
     meta: {
-      auth: true
+      auth: true,
+      keepAlive: true
     },
   },
   {
@@ -43,7 +56,8 @@ const routes = [
     name: 'Patrimonio',
     component: Patrimonio,
     meta: {
-      auth: true
+      auth: true,
+      keepAlive: true
     },
   },
   {
@@ -51,7 +65,8 @@ const routes = [
     name: 'Perfil',
     component: perfil,
     meta: {
-      auth: true
+      auth: true,
+      keepAlive: true
     },
   },
   {
@@ -59,28 +74,41 @@ const routes = [
     name: 'Guias',
     component: guias,
     meta: {
-      auth: true
+      auth: true,
+      keepAlive: true
     },
   },
   {
     path: '/contact',
     name: 'Contacto',
-    component: contacto
+    component: contacto,
+    meta: {
+      keepAlive: true
+    }
   },
   {
     path: '/login',
     name: 'Login',
-    component: login
+    component: login,
+    meta: {
+      keepAlive: true
+    }
   },
   {
     path: '/register',
     name: 'Register',
-    component: register
+    component: register,
+    meta: {
+      keepAlive: true
+    }
   },
   {
     path: '/forgot-pass',
     name: 'ForgotPass',
-    component: forgotPass
+    component: forgotPass,
+    meta: {
+      keepAlive: false
+    }
   }
 ]
 

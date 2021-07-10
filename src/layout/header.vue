@@ -9,7 +9,8 @@
       </router-link>
     </div>
     <div class="notification-container">
-      <notificationsButton v-if="isLogged" />
+      <!-- <notificationsButton v-if="isLogged" /> -->
+      <loading v-if="loading" />
     </div>
   </div>
 </template>
@@ -18,12 +19,16 @@
 import lateralMenu from "@/components/lateralMenu";
 import notificationsButton from "@/components/notificationsButton";
 import { mapGetters } from "vuex";
+import loading from '@/components/loading'
 
 export default {
   name: "Footer",
-  components: { lateralMenu, notificationsButton },
+  components: { lateralMenu, notificationsButton, loading },
   computed: {
     ...mapGetters(["isLogged", "user"]),
+    loading() {
+      return this.$store.state.operaciones.loading;
+    },
   },
 };
 </script>

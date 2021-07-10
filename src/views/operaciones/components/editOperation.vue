@@ -2,9 +2,9 @@
   <div class="container-add-operacion">
     <div class="titulo-seccion-container">
       <div class="btn-go-back"><goBackBtn /></div>
-      <h3 class="titulo-seccion">Añadir transacción</h3>
+      <h3 class="titulo-seccion">Editando transacción</h3>
     </div>
-    <form @submit.prevent="addTransaction()" class="form-add-operacion" action="">
+    <form @submit.prevent="updateTransaction()" class="form-add-operacion" action="">
       <div class="add--asunto input">
         <v-text-field label="Asunto" hide-details="auto" v-model="transaction.subject"></v-text-field>
       </div>
@@ -37,7 +37,7 @@
           <span class="categoria-nombre">{{ categoria.name }}</span>
         </div>
       </div>
-      <div class="add--btn mt-4"><button class="btn btn-primary">Añadir transacción</button></div>
+      <div class="add--btn mt-4"><button class="btn btn-primary">Actualizar transacción</button></div>
     </form>
 
     <adviceAction v-model="showAdvice" :title="dialogTitle" :text="dialogText" :type="dialogType" />
@@ -49,7 +49,7 @@ import adviceAction from "@/components/adviceAction";
 import goBackBtn from "@/components/goBackBtn";
 
 export default {
-  name: "AddOperacion",
+  name: "EditOperacion",
   components: { adviceAction, goBackBtn },
   data() {
     return {
@@ -58,6 +58,7 @@ export default {
         subject: "",
         quantity: "",
         type_transaction: "resta",
+        id_transaction: "",
         categoria: {
           color: null,
           descr: "El resto de gastos que no pueden incluirse en ninguna de las categorias anteriores.",
@@ -81,33 +82,35 @@ export default {
     },
   },
   mounted() {
-    
+    console.log(this.$route.params.id);
+    this.loadUpdateTransaction();
   },
   methods: {
-    addTransaction() {
+    loadUpdateTransaction() {
+      this.$store
+        .dispatch("operaciones/loadUpdateTransaction", this.$route.params.id)
+        .then((res) => {
+          console.log(res.data.transaction);
+          const transaction = res.data.transaction;
+          this.transaction.subject = transaction.subject;
+          this.transaction.quantity = transaction.quantity;
+          this.transaction.type_transaction = transaction.type_transaction;
+          this.transaction.id_transaction = transaction.id_transaction;
+          this.transaction.categoria = transaction.categoria;
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+    updateTransaction() {
       if (this.checkData()) {
         this.$store
-          .dispatch("operaciones/addTransaction", this.transaction)
+          .dispatch("operaciones/updateTransaction", this.transaction)
           .then((res) => {
             this.dialogTitle = "¡Éxito!";
-            this.dialogText = "La operación se ha registrado con éxito";
+            this.dialogText = "La operación se ha actualizado con éxito";
             this.dialogType = "success";
             this.showAdvice = true;
-            this.transaction = {
-              subject: "",
-              quantity: "",
-              type_transaction: "resta",
-              categoria: {
-                color: null,
-                descr: "El resto de gastos que no pueden incluirse en ninguna de las categorias anteriores.",
-                id_category: 10,
-                img: "fas fa-align-center",
-                literal_descr: "cat_descr_other-expenses",
-                literal_name: "cat_other-expenses",
-                name: "Otros Gastos",
-                status: 1,
-              },
-            };
           })
           .catch((e) => {
             console.log(e);
