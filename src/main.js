@@ -8,10 +8,14 @@ import axios from 'axios'
 import '@/styles/index.scss' // global css
 import "normalize.css"
 
+import HighchartsVue from 'highcharts-vue'
+
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
 
 Vue.config.productionTip = false
+
+Vue.use(HighchartsVue)
 
 new Vue({
   router,

@@ -1,0 +1,7 @@
+Graficos
+
+Gastos de este mes (linea y barras) (indicar que mes) Gratis
+Gastos de este año (linea y barras por semanas/meses) (indicar año) Gratis
+Gastos entre dos fechas seleccionadas (apartado de filtrado) Por ahora gratis pero en un futuro PREMIUM
+
+Descargar reporte de gastos (de todas las opciones anteriores) Por ahora gratis pero en un futuro PREMIUM
