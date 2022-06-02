@@ -6,9 +6,9 @@
     <div class="item item--charts">
       <router-link class="item-link" :class="{ 'item-link--active': actualUrl === '/charts' }" to="/charts"><chartsIcon /></router-link>
     </div>
-    <div class="item item--patrimony">
+    <!-- <div class="item item--patrimony">
       <router-link class="item-link" :class="{ 'item-link--active': actualUrl === '/patrimony' }" to="/patrimony"><patrimonyIcon /></router-link>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -47,8 +47,11 @@ export default {
   z-index: 9;
 
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
+
+  // display: grid;
+  // grid-template-columns: 1fr 1fr;
 
   .item {
     width: 20%;

@@ -1,6 +1,7 @@
 <template>
   <div class="login-container">
     <h1>Iniciar sesión</h1>
+    <div class="login-error" v-if="errorLogin">Ha ocurrido un error al iniciar sesión, revisa que tus datos sean correctos.</div>
     <form @submit.prevent="login">
       <div>
         <v-text-field label="Nombre de usuario" name="email" v-model="email" :rules="rules" hide-details="auto"></v-text-field>
@@ -31,6 +32,7 @@ export default {
       email: "",
       password: "",
       rules: [(value) => !!value || "Requerido"],
+      errorLogin: false,
     };
   },
   mounted() {
@@ -50,6 +52,7 @@ export default {
           this.$router.push({ name: "Operaciones" });
         })
         .catch((err) => {
+          this.errorLogin = true;
           console.log(err);
         });
     },
@@ -70,6 +73,14 @@ export default {
   align-items: center;
   padding-right: 15%;
   padding-left: 15%;
+
+  .login-error {
+    font-size: 13px;
+    text-align: center;
+    color: $color-1;
+    padding-top: 5px;
+    padding-bottom: 10px;
+  }
 
   h1 {
     margin-bottom: 0;

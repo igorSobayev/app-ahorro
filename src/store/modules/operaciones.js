@@ -63,6 +63,19 @@ const actions = {
                 console.log(e)
             })
     },
+    getAllTransactionsYear({ commit }) {
+        commit('setLoading', true)
+        return axios
+            .get('/transactions-all-year')
+            .then(({ data }) => {
+                commit('setTransactions', data.data.transactions)
+                commit('setUpdateTransactions', false)
+                commit('setLoading', false)
+            })
+            .catch(e => {
+                console.log(e)
+            })
+    },
     getAllTransactions({ commit }) {
         commit('setLoading', true)
         return axios

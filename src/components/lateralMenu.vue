@@ -6,17 +6,17 @@
     <div class="lateral-menu--content-container" :class="{ 'lateral-menu--content-container__opened': openedMenu }">
       <div class="content-container--velo" @click="openedMenu = !openedMenu"></div>
       <div class="content-container--content">
-        <div class="content--logo">El logo</div>
+        <div class="content--logo"><img src="@/assets/logo-full.png" alt=""></div>
         <div class="content--links-container">
-          <div class="link">
+          <!-- <div class="link">
             <span @click="openedMenu = !openedMenu"><router-link to="/guides">Guias</router-link></span>
-          </div>
+          </div> -->
           <div class="link">
             <span @click="openedMenu = !openedMenu"><router-link to="/profile">Perfil</router-link></span>
           </div>
-          <div class="link">
+          <!-- <div class="link">
             <span @click="openedMenu = !openedMenu"><router-link to="/contact">Contacto</router-link></span>
-          </div>
+          </div> -->
           <div class="link">
             <span @click="openedMenu = !openedMenu"><span class="btn-logout" @click="logout()">Cerrar sesión</span></span>
           </div>

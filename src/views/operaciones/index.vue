@@ -83,6 +83,7 @@ export default {
       filtrosType: [
         { id: "mesActual", text: "Mes Actual" },
         { id: "ultimos30", text: "Últimos 30 días" },
+        { id: "actualYear", text: "Año actual" },
         { id: "all", text: "Todas las operaciones" },
       ],
       filtroTypeSelected: "mesActual",
@@ -132,6 +133,9 @@ export default {
           break;
         case "ultimos30":
           this.$store.dispatch("operaciones/getTransactionsLast30Days");
+          break;
+        case "actualYear":
+          this.$store.dispatch("operaciones/getAllTransactionsYear");
           break;
         case "all":
           this.$store.dispatch("operaciones/getAllTransactions");
