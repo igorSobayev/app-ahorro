@@ -1,9 +1,11 @@
-# coin-flipper
+# Keep a Coin
 
 ## Project setup
 ```
 npm install
 ```
+
+Also, you will need the API repository which is done with PHP (Laravel): https://github.com/igorSobayev/app-ahorro-api
 
 ### Compiles and hot-reloads for development
 ```
